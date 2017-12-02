@@ -1,0 +1,134 @@
+
+\documentclass{edger}
+
+
+\begin{document}
+\title{An example EDGER paper in latex
+}
+
+\shorttitle{Example Manuscript}
+
+\authors{Author1, Author2, and Author3}
+
+\institution{}
+
+%\begin{mdframed}[style=mdfexample1]
+\begin{edgerabstract}
+The \verb|\edgerabstract| environment formats and aligns the abstract and draws a border around it. Do not worry if your abstract is longer than one page, the environment would extend the box to multiple pages. 
+
+Blind text follows: \lipsum[1]
+\end{edgerabstract}
+
+
+
+\section*{Introduction}
+
+\lipsum[1-7]   
+
+
+\section*{Figures}
+
+Single figures can be plotted through the \verb|\plot| command. The syntax goes as
+
+ \verb|\plot{strue}{width=0.5\textwidth}{A sample figure caption for a sample figure }| .
+ The figure can be referred as Figure~\ref{fig:strue} using \verb|\ref{fig:strue}|
+
+\plot{strue}{width=0.5\textwidth}{A sample figure caption for a sample figure }.
+
+
+Blind Text Follows
+\lipsum[1-7]  
+\subsection*{Multiple  figures}
+
+Multiple figures are implemented with the \verb|\subfigure| environment. 
+\begin{figure}
+	\centering
+	\begin{subfigure}[c]{0.495\textwidth}
+\multiplot{strue}{width=0.99\textwidth,height=0.5\textwidth}{}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.495\textwidth}
+\multiplot{sstart}{width=0.99\textwidth,height=0.5\textwidth}{}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.495\textwidth}
+\multiplot{sinv}{width=0.99\textwidth,height=0.5\textwidth}{}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.495\textwidth}
+\multiplot{sinv_copy}{width=0.99\textwidth,height=0.5\textwidth}{}
+	\end{subfigure}
+\caption{(a) One figure (b) Second figure (c) Third figure and (d) Fourth figure}	
+\label{fig:bigfig}
+\end{figure}
+
+
+Individual figures can be accessed as Figure~\ref{fig:sstart} and single figure can be referred as Figure~\ref{fig:bigfig}.
+
+\lipsum[1-7]  
+\section*{Table}
+A table is implemented using the \verb|\tabl| command with an example shown below adapted from segtex class.
+\tabl{example}{This table is specified in the document by \texttt{
+		$\backslash$tabl\{example\}\{This caption.\}\{\ldots\}}.
+}{
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\multicolumn{3}{|c|}{Table Example} \\
+			\hline
+			migration\rule[-2ex]{0ex}{5ex} & 
+			$\omega \rightarrow k_z$ & 
+			$k_y^2+k-z^2\cos^2 \psi=4\omega^2/v^2$ \\
+			\hline
+			\parbox{1in}{zero-offset\\diffraction}\rule[-4ex]{0ex}{8ex} &
+			$k_z\rightarrow\omega_0$ &
+			$k_y^2+k_z^2=4\omega_0^2/v^2$ \\
+			\hline
+			DMO+NMO\rule[-2ex]{0in}{5ex} & $\omega\rightarrow\omega_0$ & 
+			$\frac{1}{4}
+			v^2k_y^2\sin^2\psi+\omega_0^2\cos^2\psi=\omega^2$ \\
+			\hline
+			radial DMO\rule[-2ex]{0in}{5ex} & $\omega\rightarrow\omega_s$ &
+			$\frac{1}{4}v^2k_y^2\sin^2\psi+\omega_s^2=\omega^2$\\
+			\hline
+			radial NMO\rule[-2ex]{0in}{5ex} & $\omega_s\rightarrow\omega_0$ &
+			$\omega_0\cos\psi=\omega_s$\\
+			\hline
+		\end{tabular}
+	\end{center}
+}
+
+The table can be referred to as Table~\ref{tabl:example}.
+
+\lipsum[1-7]  
+\section*{equations}
+
+Equations are implemented using the \verb|\equation| environment. An example is given below
+
+\begin{equation}
+\begin{bmatrix}
+\mathbf{M}_{bb} & \mathbf{M}_{ba} \\
+\mathbf{M}_{ab} & \mathbf{M}_{aa}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{p}_{b}  \\
+\mathbf{p}_{a} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbf{s}_{b}  \\
+\mathbf{s}_{a} 
+\end{bmatrix}
+\label{eqn:system}
+\end{equation}
+
+The equation can be referred to as equation~\ref{eqn:system}.
+
+\lipsum[1-7]  
+
+\section*{Referring intext}
+In-line references are written as \cite{knuth1989} while in-text references can be referred with \cite[]{knuth1989}.
+
+Re-compiling after adding new references can lead to misssing references. I have added a script \verb|refscript.sh| which should be run after adding new references that rebuilds the reference index and new references are added. 
+
+\bibliographystyle{seg}  % style file is seg.bst
+\bibliography{edger}
+
+\end{document} 
