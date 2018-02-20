@@ -16,6 +16,8 @@
 \begin{edgerabstract}
 The \verb|\edgerabstract| environment formats and aligns the abstract and draws a border around it. Do not worry if your abstract is longer than one page, the environment would extend the box to multiple pages. 
 
+\textcolor{red}{To compile the tex file just use \texttt{make all} command after replacing the file name in \texttt{Makefile}. Just replace the file name before \texttt{.tex} extension.}
+
 Blind text follows: \lipsum[1]
 \end{edgerabstract}
 
@@ -55,7 +57,7 @@ Multiple figures are implemented with the \verb|\subfigure| environment.
 	\begin{subfigure}[c]{0.495\textwidth}
 \multiplot{sinv_copy}{width=0.99\textwidth,height=0.5\textwidth}{}
 	\end{subfigure}
-\caption{(a) One figure (b) Second figure (c) Third figure and (d) Fourth figure}	
+\caption{(a) One figure (b) Second figure (c) Third figure and (d) Fourth figure. The caption here  is very long, so long that it should be able to take at least two lines of text. So that we can see that the desired indentation of the figure caption.}	
 \label{fig:bigfig}
 \end{figure}
 
@@ -128,7 +130,18 @@ In-line references are written as \cite{knuth1989} while in-text references can 
 
 Re-compiling after adding new references can lead to misssing references. I have added a script \verb|refscript.sh| which should be run after adding new references that rebuilds the reference index and new references are added. 
 
+
+
+
+\newpage
+
 \bibliographystyle{seg}  % style file is seg.bst
 \bibliography{edger}
+
+\appendix % This is an example of appendix
+
+\section{Sample Appendix} 
+
+This is an example of appendix. \verb|\appendix| environment need to be started before begining appendix. The contents are written in \verb|\section| format as before.
 
 \end{document} 
