@@ -3,7 +3,7 @@
 \LoadClass{article}[12pt]
 
 \RequirePackage{amsmath}
-
+\usepackage{indentfirst}
 
 %Set the margins of the document
 \usepackage[skip=1pt,font={small,bf},labelsep=space]{caption}
@@ -24,7 +24,15 @@
 \usepackage{xcolor}
 \usepackage{color}
 \usepackage[margin=1in,headheight=0.5in]{geometry}
+\thispagestyle{empty}
 
+
+\usepackage{caption}
+\newlength\myindention
+\DeclareCaptionFormat{myformat}%
+{\hspace*{\myindention}#1#2#3}
+\setlength\myindention{-0.5cm}
+\captionsetup{format=myformat}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -57,7 +65,8 @@
 
 \newcommand{\institution}
 { \begin{center}
-		\textit{\large Department of Geological Sciences\\
+		\textit{\large Department of Geological Sciences
+\\
 			The University of Texas at Austin
 		}
 	\end{center}
