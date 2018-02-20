@@ -2,9 +2,13 @@
 \documentclass{edger}
 
 
-\begin{document}
+\pagestyle{plain}
+
+\begin{document}\thispagestyle{new}
 \title{An example EDGER paper in latex
 }
+
+
 
 \shorttitle{Example Manuscript}
 
@@ -14,11 +18,7 @@
 
 %\begin{mdframed}[style=mdfexample1]
 \begin{edgerabstract}
-The \verb|\edgerabstract| environment formats and aligns the abstract and draws a border around it. Do not worry if your abstract is longer than one page, the environment would extend the box to multiple pages. 
-
-\textcolor{red}{To compile the tex file just use \texttt{make all} command after replacing the file name in \texttt{Makefile}. Just replace the file name before \texttt{.tex} extension.}
-
-Blind text follows: \lipsum[1]
+The \verb|\edgerabstract| environment formats and aligns the abstract and draws a border around it. Do not worry if your abstract is longer than one page, the environment would extend the box to multiple pages. \textcolor{red}{To compile the tex file just use \texttt{make all} command after replacing the file name in \texttt{Makefile}. Just replace the file name before \texttt{.tex} extension.} Blind text follows: \lipsum[1]
 \end{edgerabstract}
 
 
@@ -35,7 +35,7 @@ Single figures can be plotted through the \verb|\plot| command. The syntax goes 
  \verb|\plot{strue}{width=0.5\textwidth}{A sample figure caption for a sample figure }| .
  The figure can be referred as Figure~\ref{fig:strue} using \verb|\ref{fig:strue}|
 
-\plot{strue}{width=0.5\textwidth}{A sample figure caption for a sample figure }.
+\plot{strue}{width=0.5\textwidth}{A sample figure caption for a sample figure. Along caption must be indented like this. This matches the exact style in the word template. Again, A sample figure caption for a sample figure. Along caption must be indented like this. This matches the exact style in the word template.}
 
 
 Blind Text Follows
@@ -68,7 +68,7 @@ Individual figures can be accessed as Figure~\ref{fig:sstart} and single figure 
 \section*{Table}
 A table is implemented using the \verb|\tabl| command with an example shown below adapted from segtex class.
 \tabl{example}{This table is specified in the document by \texttt{
-		$\backslash$tabl\{example\}\{This caption.\}\{\ldots\}}.
+		$\backslash$tabl\{example\}\{This caption.\}\{\ldots\}}  The table has to be indented like Figure captions and the captions should be at the top of the table. 
 }{
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -97,7 +97,7 @@ A table is implemented using the \verb|\tabl| command with an example shown belo
 	\end{center}
 }
 
-The table can be referred to as Table~\ref{tabl:example}.
+The table can be referred to as Table~\ref{tabl:example}. 
 
 \lipsum[1-7]  
 \section*{equations}
@@ -126,7 +126,7 @@ The equation can be referred to as equation~\ref{eqn:system}.
 \lipsum[1-7]  
 
 \section*{Referring intext}
-In-line references are written as \cite{knuth1989} while in-text references can be referred with \cite[]{knuth1989}. The references are based on the seg style after the segtex format.
+In-line references are written as \cite{knuth1989} while in-text references can be referred with \cite[]{lamport}. The references are based on the seg style after the segtex format.
 
 Re-compiling after adding new references can lead to misssing references. I have added a script \verb|refscript.sh| which should be run after adding new references that rebuilds the reference index and new references are added. 
 
@@ -134,6 +134,7 @@ Re-compiling after adding new references can lead to misssing references. I have
 
 
 \newpage
+
 
 \bibliographystyle{seg}  % style file is seg.bst
 \bibliography{edger}
