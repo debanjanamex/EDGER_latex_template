@@ -4,11 +4,15 @@
 
 \RequirePackage{amsmath}
 \usepackage{indentfirst}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
 
 %Set the margins of the document
 \usepackage[skip=1pt,font={small,bf},labelsep=space]{caption}
 
 %Set font to times new romain
+\usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{tgtermes}
 \usepackage{mathptmx}
@@ -24,7 +28,7 @@
 \usepackage{xcolor}
 \usepackage{color}
 \usepackage[margin=1in,headheight=0.5in]{geometry}
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
 
 \usepackage{caption}
@@ -34,17 +38,18 @@
 \setlength\myindention{-0.5cm}
 \captionsetup{format=myformat}
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{} % sets both header and footer to nothing
-\renewcommand{\headrulewidth}{0pt}
-%\setlength{\headheight}{-12pt}
+\newcommand{\conftitle}{The 7th International Conference on...}
 
 
-\chead{hello}
+
+
+%\setlength{\headheight}{12pt}
+
+
+
 
 \newcommand{\shorttitle}[1]
-{\chead{\small \textcolor{black}{\textbf{#1}}}}
+{\chead{\small \textcolor{black}{{#1}}}}
 
 
 \titlespacing{\section}{0.25in}{\parskip}{-\parskip}
@@ -55,6 +60,9 @@
 	\textbf{\uppercase{\large #1}}
 \end{center}
 }
+
+
+
 
 \newcommand{\authors}[1]
 { \begin{center}
@@ -84,6 +92,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[#2]{#1}
+		\captionsetup{width=\dimexpr\textwidth-2cm\relax}
 		\caption{#3}
 		\label{fig:#1}
 	\end{figure}
@@ -97,12 +106,14 @@
 		\label{fig:#1}
 }
 
+\captionsetup[figure]{labelfont={bf},name={Figure},labelsep=period}
 %\renewenvironment{abstract}{ \begin{mdframed}[style=mdfexample1]  } {\end{mdframed} }
 
 
 \newenvironment{edgerabstract}
 { \begin{mdframed}[style=mdfexample1] 
 	\begin{abstract}
+		\noindent
 	\large  }
 	 {
 \end{abstract} 
@@ -132,10 +143,25 @@
 {
 	\begin{table}
 		{#3}
+		\captionsetup{width=\dimexpr\textwidth-2cm\relax}
 		\caption{#2}
 		\label{tabl:#1}
 	\end{table}
 }
+
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\fancyfoot[c]{\small \thepage}
+	\fancyhead[c]{\small \shorttitle}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.0pt}}
+
+\fancypagestyle{new}{%
+	\fancyhf{}
+	\fancyfoot[c]{\small \thepage}
+	
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.0pt}}
 
 % Sets line spacing through the document
 \linespread{1.2}
@@ -146,3 +172,7 @@
 
 %Sets graphics path
 \graphicspath{{./Fig/}}
+
+
+\AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
+\def\bibfont{\small}
