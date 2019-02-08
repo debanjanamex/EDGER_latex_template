@@ -21,7 +21,7 @@
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage[linewidth=1pt,innerleftmargin=1pt]{mdframed}
-\mdfdefinestyle{mdfexample1}{leftmargin=1pt,rightmargin=1pt, innerleftmargin=2pt,innerrightmargin=2pt}
+\mdfdefinestyle{mdfexample1}{innerleftmargin=-20pt,innerrightmargin=-20pt}
 \usepackage{verbatim}
 \usepackage{subcaption}
 \RequirePackage{natbib}
@@ -49,7 +49,7 @@
 
 
 \newcommand{\shorttitle}[1]
-{\chead{\small \textcolor{black}{{#1}}}}
+{\chead{\small \textbf{\textcolor{black}{{#1}}}}}
 
 
 \titlespacing{\section}{0.25in}{\parskip}{-\parskip}
